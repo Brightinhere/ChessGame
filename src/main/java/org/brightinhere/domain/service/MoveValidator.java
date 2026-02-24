@@ -1,7 +1,8 @@
 package org.brightinhere.domain.service;
 
 import org.brightinhere.domain.model.Board;
-import org.brightinhere.domain.model.Color;
+import org.brightinhere.domain.model.ValidationResult;
+import org.brightinhere.domain.model.enums.Color;
 import org.brightinhere.domain.model.MoveCommand;
 
 public interface MoveValidator {

@@ -1,4 +1,4 @@
-package org.brightinhere.domain.model;
+package org.brightinhere.domain.model.enums;
 
 public enum GameStatus {
     IN_PROGRESS,

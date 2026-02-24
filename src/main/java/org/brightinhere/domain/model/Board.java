@@ -1,5 +1,8 @@
 package org.brightinhere.domain.model;
 
+import org.brightinhere.domain.model.enums.Color;
+import org.brightinhere.domain.model.piece.Piece;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -28,4 +31,9 @@ public class Board {
 
         return new Board(newPieces);
     }
+
+//    public <T> ScopedValue<T> findKing(Color color) {
+//        // TODO: Implement method to find king's position
+//        return null;
+//    }
 }

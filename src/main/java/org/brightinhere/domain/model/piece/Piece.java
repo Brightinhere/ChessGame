@@ -1,4 +1,10 @@
-package org.brightinhere.domain.model;
+package org.brightinhere.domain.model.piece;
+
+import org.brightinhere.domain.model.Board;
+import org.brightinhere.domain.model.Square;
+import org.brightinhere.domain.model.enums.Color;
+
+import java.util.Set;
 
 public abstract class Piece {
 

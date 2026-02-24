@@ -1,8 +1,10 @@
 package org.brightinhere.domain.model;
 
+import org.brightinhere.domain.model.enums.Color;
+import org.brightinhere.domain.model.enums.GameStatus;
 import org.brightinhere.domain.service.MoveExecutor;
+import org.brightinhere.domain.service.MoveValidator;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
