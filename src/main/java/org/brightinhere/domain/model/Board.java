@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import java.util.*;
+
 public class Board {
 
     private final Map<Square, Piece> pieces;
@@ -24,16 +26,28 @@ public class Board {
     }
 
     public Board movePiece(Square from, Square to) {
+
         Map<Square, Piece> newPieces = new HashMap<>(pieces);
 
         Piece piece = newPieces.remove(from);
+
+        if (piece == null) {
+            throw new IllegalStateException("No piece at square: " + from);
+        }
+
         newPieces.put(to, piece);
 
         return new Board(newPieces);
     }
 
-//    public <T> ScopedValue<T> findKing(Color color) {
-//        // TODO: Implement method to find king's position
-//        return null;
-//    }
+    public Optional<Square> findKing(Color color) {
+        return pieces.entrySet()
+                .stream()
+                .filter(entry ->
+                        entry.getValue().getColor() == color &&
+                                entry.getValue().isKing()
+                )
+                .map(Map.Entry::getKey)
+                .findFirst();
+    }
 }

@@ -5,7 +5,7 @@ public record ValidationResult(
         String message
 ) {
 
-    public static ValidationResult valid() {
+    public static ValidationResult success() {
         return new ValidationResult(true, null);
     }
 

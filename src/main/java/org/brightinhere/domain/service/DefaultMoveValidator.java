@@ -1,13 +1,23 @@
-package org.brightinhere.domain.model;
+package org.brightinhere.domain.service;
 
+import org.brightinhere.domain.model.Board;
+import org.brightinhere.domain.model.MoveCommand;
+import org.brightinhere.domain.model.Square;
+import org.brightinhere.domain.model.ValidationResult;
 import org.brightinhere.domain.model.enums.Color;
 import org.brightinhere.domain.model.piece.Piece;
-import org.brightinhere.domain.service.MoveValidator;
 
 import java.util.Optional;
 import java.util.Set;
 
 public class DefaultMoveValidator implements MoveValidator {
+    private final CheckDetector checkDetector;
+    private final MoveExecutor moveExecutor;
+
+    public DefaultMoveValidator(CheckDetector checkDetector, MoveExecutor moveExecutor) {
+        this.checkDetector = checkDetector;
+        this.moveExecutor = moveExecutor;
+    }
 
     @Override
     public ValidationResult validate(Board board, MoveCommand command, Color currentTurn) {
@@ -29,10 +39,10 @@ public class DefaultMoveValidator implements MoveValidator {
 
         if (isKingInCheck(simulated, currentTurn)) return ValidationResult.invalid("Move leaves king in check");
 
-        return ValidationResult.valid();
+        return ValidationResult.success();
     }
 
-    private boolean isKingInCheck(Board simulated, Color currentTurn) {
-        return false;
+    public boolean isKingInCheck(Board board, Color color) {
+        return checkDetector.isKingInCheck(board, color);
     }
 }

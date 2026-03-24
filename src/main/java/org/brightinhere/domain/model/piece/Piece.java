@@ -19,6 +19,10 @@ public abstract class Piece {
     }
 
     public abstract Set<Square> generateMoves(Board board, Square from);
+
+    public boolean isKing() {
+        return false;
+    }
 }
 
 
